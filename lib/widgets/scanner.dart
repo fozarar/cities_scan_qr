@@ -69,11 +69,10 @@ class _ScannerWidgetState extends State<ScannerWidget> {
       );
 
   void onQRViewCreated(QRViewController controller) {
-    setState(() => this.controller = controller);
+    this.controller = controller;
 
     controller.scannedDataStream.listen((barcode) => setState(() {
           this.barcode = barcode;
-          print(barcode.code);
           c.qrVal.value = barcode.code!;
           Future.delayed(const Duration(seconds: 1), () {
             Get.back();

@@ -107,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       IconButton(
                         onPressed: () {
+                          textController.text == '';
                           Get.to(() => const ScannerWidget());
                         },
                         icon: const Icon(Icons.camera_alt_rounded),
@@ -128,6 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Expanded(
                   child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
                     itemCount: _foundedCityList.length,
                     itemBuilder: (ctx, i) {
                       return Column(
